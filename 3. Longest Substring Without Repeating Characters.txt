@@ -1,0 +1,44 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int count = 0;
+        int maxcount = 0;
+        boolean[] seen = new boolean[256];
+        for(int i=0;i<s.length();i++){
+            count = 0;
+            for(int j=i;j<s.length();j++){
+                if(seen[s.charAt(j)]){
+                    break;
+                }
+                seen[s.charAt(j)] = true;
+                count++;
+                maxcount = Math.max(maxcount, count);
+            }
+            seen = new boolean[256];
+        }
+        return maxcount;
+    }
+}
+
+//////////////////////
+to print string
+
+int count=0, maxcount=0, maxstart=0;
+        String s = "aabbcc";
+        boolean [] seen = new boolean[256];
+        for(int i=0;i<s.length();i++){
+            count = 0;
+            for(int j=i;j<s.length();j++){
+                if(seen[s.charAt(j)]){
+                    break;
+                }
+                seen[s.charAt(j)] = true;
+                count++;
+                if(count > maxcount){
+                    maxcount = count;
+                    maxstart = i;
+                }
+            }
+            seen = new boolean[256];
+        }
+        String longestsubstring = s.substring(maxstart, maxstart+maxcount);
+        System.out.println(longestsubstring);

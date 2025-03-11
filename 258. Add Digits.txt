@@ -1,0 +1,8 @@
+class Solution {
+    public int addDigits(int num) {
+        int s = 1+(num-1)%9;
+        return s;
+    }
+}
+
+//exp : mod of 9, because the output range from 1-9

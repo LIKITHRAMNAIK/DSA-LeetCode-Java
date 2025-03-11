@@ -1,0 +1,73 @@
+////////////gfg
+import java.util.*;
+
+class Solution {
+    public ArrayList<Integer> nextLargerElement(int[] arr) {
+        ArrayList<Integer> result = new ArrayList<>();
+        
+        for (int i = 0; i < arr.length; i++) {
+            int nextGreater = -1; // Default to -1
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] > arr[i]) {
+                    nextGreater = arr[j];
+                    break;
+                }
+            }
+            result.add(nextGreater);
+        }
+        return result;
+    }
+
+////////////////////////////////// or  ///////////////////
+
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {2, 4, 1, 7, 9, 0, 6};
+        int[] arr2 = new int[arr1.length];
+
+        for(int i=0;i<arr1.length;i++){
+            arr2[i] = -1;
+            for(int j=i+1; j<arr1.length;j++){
+                if(arr1[j] > arr1[i]){
+                    arr2[i] = arr1[j];
+                    break;
+                }
+            }
+        }
+        // for(int i=0;i<arr1.length;i++){
+        //     System.out.print(arr2[i] + " ");
+        // }
+        System.out.print(Arrays.toString(arr2));
+    }
+}
+
+
+////////////////////////////////////////// or ////////////////////
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr1[] = {2,4,1,7,9,0,6};
+        int arr2[] = new int[arr1.length];
+        
+        for(int i=0;i<arr1.length;i++){
+            boolean found = false;
+            for(int j=i+1;j<arr1.length;j++){
+                if(arr1[j]>arr1[i]){
+                    arr2[i]=arr1[j];
+                    found = true;
+                    break;
+                }
+            }
+                if (!found){
+                    arr2[i] = -1;
+            }
+        }
+        for(int i=0; i<arr1.length;i++){
+            System.out.print(arr2[i]+" ");
+        }
+    }
+}

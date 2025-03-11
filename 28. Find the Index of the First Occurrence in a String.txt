@@ -1,0 +1,23 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        
+        if(needle.length() == 0){
+            return 0;
+        }
+
+        char [] stackarr = haystack.toCharArray();
+        char [] needarr = needle.toCharArray();
+
+        for(int i=0; i <= stackarr.length - needarr.length ; i++){
+            for(int j=0; j<needarr.length; j++){
+                if(stackarr[i+j] != needarr[j]){
+                    break;
+                }
+                if(j == needarr.length - 1){
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+}

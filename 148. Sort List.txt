@@ -1,0 +1,17 @@
+class Solution {
+    public ListNode sortList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        List<Integer> values = new ArrayList<>();
+        for (ListNode temp = head; temp != null; temp = temp.next) {
+            values.add(temp.val);
+        }
+        Collections.sort(values);
+        ListNode temp = head;
+        for (int i = 0; temp != null; temp = temp.next, i++) {
+            temp.val = values.get(i);
+        }
+        return head;
+    }
+}

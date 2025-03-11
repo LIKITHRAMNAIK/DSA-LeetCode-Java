@@ -1,0 +1,60 @@
+1. Climbing Stairs (LeetCode 70)
+Problem: You can climb 1 or 2 steps at a time. Find the number of ways to reach the top of n stairs.
+Approach: dp[i] = dp[i-1] + dp[i-2]
+Tags: Fibonacci, Bottom-up DP
+2. House Robber (LeetCode 198)
+Problem: Given an array nums where nums[i] represents money in the house at index i, find the maximum money you can rob without robbing adjacent houses.
+Approach: dp[i] = max(dp[i-1], nums[i] + dp[i-2])
+Tags: Bottom-up DP, Space Optimization
+3. Coin Change (LeetCode 322)
+Problem: Given coins[] and an integer amount, return the minimum number of coins required to make amount. If not possible, return -1.
+Approach: dp[i] = min(dp[i], dp[i-coin] + 1)
+Tags: 1D DP, Unbounded Knapsack
+4. Coin Change II (LeetCode 518)
+Problem: Given coins[] and amount, return the total number of ways to make amount.
+Approach: Knapsack-style DP, iterate over coins first.
+Tags: 1D DP, Combinations
+5. Partition Equal Subset Sum (LeetCode 416)
+Problem: Can you partition nums[] into two subsets with equal sum?
+Approach: dp[i] = dp[i] || dp[i-nums[j]]
+Tags: Subset Sum, 0/1 Knapsack
+6. Jump Game (LeetCode 55)
+Problem: Can you reach the last index in nums[], where nums[i] represents the maximum jump from i?
+Approach: Greedy + DP, dp[i] = max(dp[i-1], i + nums[i])
+Tags: Greedy, DP
+7. Jump Game II (LeetCode 45)
+Problem: Find the minimum number of jumps to reach the last index.
+Approach: DP with greedy optimization.
+Tags: Greedy, DP
+8. Integer Break (LeetCode 343)
+Problem: Break n into at least two integers to maximize the product.
+Approach: dp[i] = max(dp[i], max(j * (i - j), j * dp[i - j]))
+Tags: DP, Math
+9. Decode Ways (LeetCode 91)
+Problem: Given a string of digits (s), find how many ways you can decode it into letters (A-Z).
+Approach: dp[i] = dp[i-1] + dp[i-2]
+Tags: String DP
+10. Unique Paths (LeetCode 62)
+Problem: Find the number of ways to reach (m-1, n-1) from (0,0) in an m x n grid, moving only right or down.
+Approach: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+Tags: Grid DP
+11. Unique Paths II (LeetCode 63)
+Problem: Similar to Unique Paths, but some cells have obstacles (1).
+Approach: Handle obstacleGrid[i][j] == 1, modify DP transition.
+Tags: Grid DP
+12. Longest Increasing Subsequence (LeetCode 300)
+Problem: Find the length of the longest increasing subsequence in nums[].
+Approach: dp[i] = max(dp[i], dp[j] + 1) if nums[j] < nums[i]
+Tags: LIS, DP, Binary Search
+13. Edit Distance (LeetCode 72)
+Problem: Convert string word1 to word2 with minimum insertions, deletions, or replacements.
+Approach: dp[i][j] = min(insert, delete, replace)
+Tags: String DP
+14. Longest Common Subsequence (LeetCode 1143)
+Problem: Find the longest common subsequence between two strings.
+Approach: dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+Tags: 2D DP
+15. Best Time to Buy and Sell Stock with Cooldown (LeetCode 309)
+Problem: Find max profit, but after selling a stock, you must wait one day before buying again.
+Approach: DP with three states: buy, sell, cooldown.
+Tags: Stock DP

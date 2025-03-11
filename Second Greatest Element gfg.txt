@@ -1,0 +1,27 @@
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        // Code Here
+        Arrays.sort(arr);
+        for(int i=arr.length-2; i>=0;i--){
+            if(arr[i] < arr[arr.length - 1]){
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+}
+
+///////////////////// or ///////////////
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int arr1[] = {2,5,9,8};
+        int a = arr1.length;
+        
+        Arrays.sort(arr1);
+        System.out.print(arr1[a-2]);
+    }
+}
+

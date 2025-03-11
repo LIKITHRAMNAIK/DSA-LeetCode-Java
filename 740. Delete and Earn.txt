@@ -1,0 +1,21 @@
+class Solution {
+    public int deleteAndEarn(int[] nums) {
+        int maxnum = 0;
+        for(int num : nums){
+            maxnum = Math.max(maxnum,num);
+        }
+
+        int pointer[] = new int[maxnum+1];
+        for(int num : nums){
+            pointer[num] += num;
+        }
+
+        int dp[] = new int[maxnum+1];
+        dp[0] = 0;
+        dp[1] = pointer[1];
+        for(int i=2;i<=maxnum;i++){
+            dp[i] = Math.max(dp[i-1] , dp[i-2]+pointer[i]);
+        }
+        return dp[maxnum];
+    }
+}

@@ -1,0 +1,48 @@
+////////// 92/93 ///////
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        ListNode c=head;
+        String s1="";
+        String s2="";
+        ListNode prev = null;
+        for(ListNode curr = head, next; curr != null; curr = next){
+
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            s1=s1+prev.val;
+         
+        }
+         while (prev != null) {
+            s2=s2+prev.val;
+            prev = prev.next;
+        }
+        if(s1.equals(s2)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+
+///////////// or //////////////
+
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        List<Integer> list = new ArrayList();
+        while(head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        
+        int left = 0;
+        int right = list.size()-1;
+        while(left < right && list.get(left) == list.get(right)) {
+            left++;
+            right--;
+        }
+        return left >= right;
+    }
+}

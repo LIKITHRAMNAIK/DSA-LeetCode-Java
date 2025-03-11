@@ -1,0 +1,27 @@
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        for(ListNode curr = head, next ; curr !=null ; curr = next){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+        }
+        return prev;
+    }
+}
+
+
+/////////////// gfg /////////////////////
+
+class Solution {
+    Node reverseList(Node head) {
+        // code here
+        Node prev = null;
+        for(Node curr = head, next ; curr != null; curr = next){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+        }
+        return prev;
+    }
+}

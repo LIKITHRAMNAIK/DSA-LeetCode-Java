@@ -1,0 +1,22 @@
+class Solution {
+    int countPrimes(int L, int R) {
+        // code here
+        boolean [] ans = new boolean[R+1];
+        if(R<=2) return 0;
+        int limit = (int)Math.sqrt(R);
+        for(int i=2;i<=limit;i++){
+            if(ans[i] == false){
+                for(int j=i*i;j<=R;j+=i){
+                    ans[j] = true;
+                }
+            }
+        }
+        int count =0;
+        for(int i=Math.max(L,2);i<=R;i++){
+            if(ans[i] == false){
+                count++;
+            }
+        }
+        return count;
+    }
+};

@@ -1,0 +1,13 @@
+class Solution {
+    int missingNumber(int arr[]) {
+        // code here
+        int n = arr.length+1;
+        long num1 = (long) n*(n+1)/2;
+        long num2 = 0;
+        
+        for(int i=0;i<n-1;i++){
+            num2 += arr[i];
+        }
+        return (int)(num1 - num2);
+    }
+}
